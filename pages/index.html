@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+        .Residuall {
+            border: none;
+        }
+    </style>
+
+    <title>Renting Automayor - Simulador </title>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <h6 for="inputplazo">plazo</h6>
+                    <select id="inputplazo" onchange="getDataSelect(this.value,0);" class="form-control">
+                        <option selected>Escoja Opcion</option>
+                        <option value="36">36 Meses</option>
+                        <option value="48">48 Meses</option>
+                        <option value="60">60 Meses</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <h6 for="inputkm">kilometraje Anual</h6>
+                    <select id="inputkm" onchange="getDataSelect(this.value,1);" class="form-control">
+                        <option selected>Escoja Opcion</option>
+                        <option value="10000">10000 Kilometros</option>
+                        <option value="15000">15000 Kilometros</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <h6 for="nputmatri">Matricula</h6>
+                    <select id="inputmatri" onchange="getDataSelect(this.value,2);" class="form-control">
+                        <option selected>Escoja Opcion</option>
+                        <option value="Cundinamarca">Cundinamarca</option>
+                        <option value="Otro">Otro lugar</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <h6 for="inputTipoRenting">Tipo Renting</h6>
+                    <select id="inputTipoRenting" onchange="getDataSelect(this.value,3);" class="form-control">
+                        <option selected>Escoja Opcion</option>
+                        <option value="Renting Tradicional">Renting Tradicional</option>
+                        <option value="Residual garantizado">Residual garantizado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <h6>Plazo</h6>
+                        <input type="text" id="plazo" readonly value="plazo" />
+                        <h6>kilometraje Anual</h6>
+                        <input type="text" id="km" readonly value="km" />
+                        <h6>Ciudad de Matricula</h6>
+                        <input type="text" id="matricula" readonly value="matricula" />
+                        <h6>Tipo de Renting</h6>
+                        <input type="text" id="TipoRenting" readonly value="TipoRenting" />
+                    </div>
+
+                    <!-- APARTADO TOTAL CANON Renting Tradicional -->
+                    <div id="Renting Tradicional1" class="form-group col-md-6">
+                        <h3>Total Canon Renting Tradicional</h3>
+
+                        <div class="form-group col-md-4">
+
+                            <h6>Total Canon Mensual</h6>
+                            <input type="text" id="Total Canon" readonly value="Total Canon" />
+                            <h6>Iva</h6>
+                            <input type="text" id="Iva" readonly value="Iva" />
+                            <h6>Total Canon Mensual + Iva</h6>
+                            <input type="text" id="Total Canon + Iva" readonly value="Total Canon + Iva" />
+                        </div>
+                    </div>
+
+                    <!-- APARTADO TOTAL CANON RESIDUAL GARANTIZADO -->
+                    <div id="Residual garantizado1" class="form-group col-md-6" style="display: none;">
+                        <h3>Total Canon Residual garantizado</h3>
+
+                        <div class="form-group col-md-4">
+
+                            <h6>Total Canon Mensual</h6>
+                            <input type="text" id="Total Canon" readonly value="Total Canon" />
+                            <h6>Iva</h6>
+                            <input type="text" id="Iva" readonly value="Iva" />
+                            <h6>Total Canon Mensual + Iva</h6>
+                            <input type="text" id="Total Canon + Iva" readonly value="Total Canon + Iva" />
+                        </div>
+                    </div>
+
+
+
+                    <!-- apartado de residual gyarantaizado por div
+<h6 style="display: none; " id="titulore" >Residual (Residual garantizado) </h6>
+<input type="text" id="Residual" readonly value="Residual" style="display: none;" />
+</div>-->
+                    <!-- APARTADO para residual vehículo -->
+
+                    <div id="titulore" class="container" class="form-group col-md-6" style="display: none;">
+                        <h2>Residual garantizado</h2>
+                        <p>Esta tabla muestra los valores de pago</p>
+
+                        <p> Dos Pagos: <input type="checkbox" id="myCheck" onclick="myFunction()"> </p>
+
+                        <p>Residual: <input type="text" id="Residual" class="Residuall" readonly value="Residual"></p>
+
+                        <p>Residual Minimo: <input type="text" id="ResidualMin" class="Residuall" readonly
+                                value="ResidualMin"> </p>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Concepto del pago</th>
+                                    <th>(%)</th>
+                                    <th>(Valor $$)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Valor pago inicial</td>
+                                    <td><input type="text" id="%ValorInicial" class="Residuall" readonly value="%VI">
+                                    </td>
+                                    <td><input type="text" id="ValorInicial1" class="Residuall" placeholder="0"
+                                            onkeyup="format(this)">
+                                    </td>
+                                </tr>
+                                <tr id="ValorFinal" style="visibility:hidden">
+                                    <td>Valor pago final</td>
+                                    <td><input type="text" id="%ValorFinal" class="Residuall" readonly value="%VF"></td>
+                                    <td><input type="text" id="%ValorFinal1" class="Residuall" value="%ValorFinal1">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- APARTADO financiación 100% del vehículo -->
+                    <div class="form-group col-md-6">
+                        <h3>Comparativo financiación 100% del vehículo.</h3>
+
+                        <div class="form-group col-md-4">
+
+                            <h6>Valor vehiculo</h6>
+                            <input type="text" id="Valor vehiculo" readonly value="51.490.000" />
+                            <h6>Accesorios basicos</h6>
+                            <input type="text" id="Accesorios basicos" readonly value="328.440" />
+                            <h6>Total a financiar</h6>
+                            <input type="text" id="Total a financiar" readonly value="51.818.440" />
+                            <h6>Tasa</h6>
+                            <input type="text" id="Tasa" readonly value="1,20%" />
+                            <h6>Plazo</h6>
+                            <input type="text" id="plazo1" readonly placeholder="Plazo" />
+                            <h6>Cuota financiación</h6>
+                            <input type="text" id="Cuota financiación" readonly placeholder="Cuota financiación" />
+                            <h6>Costos Totales de Propiedad (CTP)</h6>
+                            <input type="text" id="CTP" readonly placeholder="(CTP)" />
+                            <h6>CTP Mensual</h6>
+                            <input type="text" id="CTP Mensual" readonly placeholder="CTP Mensual" />
+                            <h6>Cuota total mensual</h6>
+                            <input type="text" id="Cuota total mensual" readonly placeholder="Cuota total mensual" />
+                            <h6>Canon Renting mensual</h6>
+                            <input type="text" id="Canon Renting mensual" readonly
+                                placeholder="Canon Renting mensual" />
+                            <h6>Tu ahorro mensual con Renting es de:</h6>
+                            <input type="text" id="Tu ahorro mensual con Renting es de:" readonly
+                                placeholder="Tu ahorro mensual con Renting es de:" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Javascript - Application Functions -->
+    <script src="../js/functionSimulation.js"></script>
+
+</body>
+
+</html>
