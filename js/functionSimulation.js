@@ -1,7 +1,7 @@
 /*
-Author:
-Description:
-Date:    
+Author: Cristian Malaver ALzate
+Description: codigo para funcionalidad de simulador 
+Date: 2/04/2020
 */
 var PrecioMercado = 51490000;
 var ValorActIva = 40390000;
@@ -53,10 +53,13 @@ function format(g) {
         alert('Solo se permiten numeros');
         g.value = g.value.replace(/[^\d\.]*/g, '');
     }
+
+
     //console.log(Inputnum);
 
 
 }
+
 window.onload = function () {
     //document.getElementById("Residual").disabled = true;
 }
@@ -178,13 +181,25 @@ function DataValidator() {
             if (arrayData[3] == "Renting Tradicional") {
 
             }
-            if (arrayData[3] == "Residual garantizado") {
+            else if (arrayData[3] == "Residual garantizado") {
                 //debugger;
-                let valor = Inputnum.toString().replace(/\./g, '');
-                console.log(valor);
-                var capital = (TotalAct - valor) / 2;
-                console.log(capital);
+                let valorini = Inputnum.toString().replace(/\./g, '');
+                //let valor1 = Inputnum.toString().replace(/\./g, '');
+                //console.log(valor+"valor 1")
+                //console.log(valor1+"valor 2");
+                
+                valorfinal = (ResidualMin - valorini) 
 
+                var capital = (TotalAct - valorini)-(ResidualMin-valorfinal);
+                //console.log(capital);
+                var porcentaje = (valorini/ResidualMin) ;
+                var porcentaje1 = (1-porcentaje);
+                var porcentaje2 = Math.round(porcentaje*100);
+                var porcentaje3 = Math.round(porcentaje1*100);               
+                document.getElementById("ValorInicial").value = (porcentaje2+"%");
+                document.getElementById("ValorF").value = (porcentaje3+"%");
+                //console.log(porcentaje1);
+                document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
             }
 
         }
