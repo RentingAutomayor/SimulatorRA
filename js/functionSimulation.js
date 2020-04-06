@@ -3,11 +3,14 @@ Author: Cristian Malaver ALzate
 Description: codigo para funcionalidad de simulador 
 Date: 2/04/2020
 */
-var PrecioMercado = 51490000;
-var ValorActIva = 40390000;
-var AccesoriosIva = 328440;
+const PrecioMercado = 51490000;
+const ValorActIva = 40390000;
+const AccesoriosIva = 328440;
 var TotalAct = ValorActIva + AccesoriosIva;
 var Inputnum = "";
+var checkBox = document.getElementById("myCheck");
+
+
 
 
 
@@ -38,7 +41,7 @@ var formatNumber = {
 
 //Componente Financiero
 
-function format(g) {
+function formatt(g) {
     var num = g.value.replace(/\./g, '');
     if (!isNaN(num)) {
         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
@@ -46,6 +49,23 @@ function format(g) {
         g.value = num;
         Inputnum = num;
         DataValidator();
+
+    }
+
+    else {
+        alert('Solo se permiten numeros');
+        g.value = g.value.replace(/[^\d\.]*/g, '');
+    }
+}
+
+function format(g) {
+    var num = g.value.replace(/\./g, '');
+    if (!isNaN(num)) {
+        num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+        num = num.split('').reverse().join('').replace(/^[\.]/, '');
+        g.value = num;
+        //Inputnum = num;
+        //DataValidator();
 
     }
 
@@ -66,15 +86,17 @@ window.onload = function () {
 
 function myFunction() {
     // Get the checkbox
-    var checkBox = document.getElementById("myCheck");
+
     // Get the output text
     var text = document.getElementById("ValorFinal");
 
     // If the checkbox is checked, display the output text
-    if (checkBox.checked == true) {
+    if (checkBox.checked) {
         text.style.visibility = "visible";
+        DataValidator();
     } else {
         text.style.visibility = "hidden";
+        DataValidator();
     }
 }
 
@@ -153,53 +175,107 @@ function DataValidator() {
         var ResidualMin = (Residual * 0.8);
         document.getElementById("ResidualMin").value = (formatNumber.new(ResidualMin + ",00", "$ "));
         if (arrayData[1] == "10000" & arrayData[2] == "Cundinamarca") {
-            var seguros = 142970;
-            var Matricundinamarca = 35420;
-            var Matriotros = 27992;
-            var Soat = 33267;
-            var ManttoPreventivo = 43316;
-            var ManttoCorrectivo = 0;
-            var RevisionTM = 0;
-            var Impuestos = 53118;
-            var Traslado = 0;
-            var Gastosoperativos = 10318;
-            var Chevystar = 35739;
-            var Comisiones = 31612;
-            var Cupo = 0;
-            var Gestor = 0;
-            var Llantas = 0;
-            var Stand = 0;
-            var ConversionDesconversion = 0;
-            var PolizasAdicionales = 0;
-            var CupoChatarrizacion = 0;
-            var Imprevistos = 0;
-            var ExcepPicoyPlaca = 0;
-            var AIU = (seguros + Matricundinamarca + Soat + ManttoPreventivo + ManttoCorrectivo + RevisionTM + Impuestos + Traslado + Gastosoperativos + Chevystar + Comisiones + Cupo + Gestor + Llantas + Stand + ConversionDesconversion + PolizasAdicionales + CupoChatarrizacion + Imprevistos + ExcepPicoyPlaca) * 0.05;
-            var CO = seguros + Matricundinamarca + Soat + ManttoPreventivo + ManttoCorrectivo + RevisionTM + Impuestos + Traslado + Gastosoperativos + Chevystar + Comisiones + Cupo + Gestor + Llantas + Stand + ConversionDesconversion + PolizasAdicionales + CupoChatarrizacion + Imprevistos + ExcepPicoyPlaca + AIU;
+            let seguros = 142970;
+            let Matricundinamarca = 35420;
+            let Matriotros = 27992;
+            let Soat = 33267;
+            let ManttoPreventivo = 43316;
+            let ManttoCorrectivo = 0;
+            let RevisionTM = 0;
+            let Impuestos = 53118;
+            let Traslado = 0;
+            let Gastosoperativos = 10318;
+            let Chevystar = 35739;
+            let Comisiones = 31612;
+            let Cupo = 0;
+            let Gestor = 0;
+            let Llantas = 0;
+            let Stand = 0;
+            let ConversionDesconversion = 0;
+            let PolizasAdicionales = 0;
+            let CupoChatarrizacion = 0;
+            let Imprevistos = 0;
+            let ExcepPicoyPlaca = 0;
+            let AIU = (seguros + Matricundinamarca + Soat + ManttoPreventivo + ManttoCorrectivo + RevisionTM + Impuestos + Traslado + Gastosoperativos + Chevystar + Comisiones + Cupo + Gestor + Llantas + Stand + ConversionDesconversion + PolizasAdicionales + CupoChatarrizacion + Imprevistos + ExcepPicoyPlaca) * 0.05;
+            let CO = seguros + Matricundinamarca + Soat + ManttoPreventivo + ManttoCorrectivo + RevisionTM + Impuestos + Traslado + Gastosoperativos + Chevystar + Comisiones + Cupo + Gestor + Llantas + Stand + ConversionDesconversion + PolizasAdicionales + CupoChatarrizacion + Imprevistos + ExcepPicoyPlaca + AIU;
             //alert(formatNumber.new(AIU, "$ "));
             //alert(formatNumber.new(CO , "$ "));
             if (arrayData[3] == "Renting Tradicional") {
 
             }
-            else if (arrayData[3] == "Residual garantizado") {
-                //debugger;
-                let valorini = Inputnum.toString().replace(/\./g, '');
-                //let valor1 = Inputnum.toString().replace(/\./g, '');
-                //console.log(valor+"valor 1")
-                //console.log(valor1+"valor 2");
-                
-                valorfinal = (ResidualMin - valorini) 
 
-                var capital = (TotalAct - valorini)-(ResidualMin-valorfinal);
-                //console.log(capital);
-                var porcentaje = (valorini/ResidualMin) ;
-                var porcentaje1 = (1-porcentaje);
-                var porcentaje2 = Math.round(porcentaje*100);
-                var porcentaje3 = Math.round(porcentaje1*100);               
-                document.getElementById("ValorInicial").value = (porcentaje2+"%");
-                document.getElementById("ValorF").value = (porcentaje3+"%");
-                //console.log(porcentaje1);
-                document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
+            else if (arrayData[3] == "Residual garantizado") {
+                if (!checkBox.checked) {
+                    //alert("aca inicia residual garantizado UN solo pago");
+                    let valorini = Inputnum.toString().replace(/\./g, '');
+                    let capital = (TotalAct - valorini) - (ResidualMin);
+                    let porcentaje = (valorini / Residual);
+                    let porcentaje2 = Math.round(porcentaje * 100);
+                    document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                    console.log(typeof(valorini));
+                    if (valorini > Residual) {
+                        let vii = Residual;
+                        
+                        let porcentaje = (vii / Residual);
+                        let porcentaje2 = Math.round(porcentaje * 100);
+                        document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                        document.getElementById("ValorInicial1").value = (formatNumber.new(vii));
+                        //console.log(capital);
+                        valorini = Residual;
+                    }
+                    else if (valorini < ResidualMin) {
+                        let viii = ResidualMin;
+                        valorini = ResidualMin;
+                        let porcentaje = (viii / ResidualMin);
+                        let porcentaje2 = Math.round(porcentaje * 100);
+                        document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                        document.getElementById("ValorInicial1").value = (formatNumber.new(viii));
+                        //console.log(capital);
+                    }
+
+                } else {
+                    //alert("aca inicia residual garantizado DOS pagos");
+                    let valorini = Inputnum.toString().replace(/\./g, '');
+                    valorfinal = (ResidualMin - valorini)
+
+                    let capital = (TotalAct - valorini) - (ResidualMin - valorfinal);
+
+                    let porcentaje = (valorini / Residual);
+                    let porcentaje1 = (1 - porcentaje);
+                    let porcentaje2 = Math.round(porcentaje * 100);
+                    let porcentaje3 = Math.round(porcentaje1 * 100);
+                    document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                    document.getElementById("ValorF").value = (porcentaje3 + "%");
+                    document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
+                    console.log(typeof(valorini));
+                    if (valorini > Residual) {
+                        console.log(Residual);
+                        console.log(valorini);
+                        let vii = Residual;
+                        Residual = valorini;
+                        let porcentaje = (vii / Residual);
+                        let porcentaje1 = (1 - porcentaje);
+                        let porcentaje2 = Math.round(porcentaje * 100);
+                        let porcentaje3 = Math.round(porcentaje1 * 100);
+                        document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                        document.getElementById("ValorF").value = (porcentaje3 + "%");
+                        document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
+                        document.getElementById("ValorInicial1").value = (formatNumber.new(vii));
+                        //console.log(capital);
+                        if (porcentaje3 == 0) {
+                            
+                            vii = 0;
+                            document.getElementById("ValorFinal1").value = (formatNumber.new(vii));
+                            //console.log(capital);
+                            //console.log(vii);
+                        }
+                    }
+                    
+
+
+                }
+
+
             }
 
         }
