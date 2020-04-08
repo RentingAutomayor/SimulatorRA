@@ -9,6 +9,7 @@ const AccesoriosIva = 328440;
 var TotalAct = ValorActIva + AccesoriosIva;
 var Inputnum = "";
 var checkBox = document.getElementById("myCheck");
+var interes = "";
 
 
 
@@ -173,6 +174,7 @@ function DataValidator() {
         document.getElementById("Residual").value = "$ 32.850.620,00";
         Residual = 32850620;
         var ResidualMin = (Residual * 0.8);
+        interes = 0.1020 / 12;
         document.getElementById("ResidualMin").value = (formatNumber.new(ResidualMin + ",00", "$ "));
         if (arrayData[1] == "10000" & arrayData[2] == "Cundinamarca") {
             let seguros = 142970;
@@ -198,8 +200,6 @@ function DataValidator() {
             let ExcepPicoyPlaca = 0;
             let AIU = (seguros + Matricundinamarca + Soat + ManttoPreventivo + ManttoCorrectivo + RevisionTM + Impuestos + Traslado + Gastosoperativos + Chevystar + Comisiones + Cupo + Gestor + Llantas + Stand + ConversionDesconversion + PolizasAdicionales + CupoChatarrizacion + Imprevistos + ExcepPicoyPlaca) * 0.05;
             let CO = seguros + Matricundinamarca + Soat + ManttoPreventivo + ManttoCorrectivo + RevisionTM + Impuestos + Traslado + Gastosoperativos + Chevystar + Comisiones + Cupo + Gestor + Llantas + Stand + ConversionDesconversion + PolizasAdicionales + CupoChatarrizacion + Imprevistos + ExcepPicoyPlaca + AIU;
-            //alert(formatNumber.new(AIU, "$ "));
-            //alert(formatNumber.new(CO , "$ "));
             if (arrayData[3] == "Renting Tradicional") {
 
             }
@@ -208,69 +208,150 @@ function DataValidator() {
                 if (!checkBox.checked) {
                     //alert("aca inicia residual garantizado UN solo pago");
                     let valorini = Inputnum.toString().replace(/\./g, '');
-                    let capital = (TotalAct - valorini) - (ResidualMin);
-                    let porcentaje = (valorini / Residual);
-                    let porcentaje2 = Math.round(porcentaje * 100);
-                    document.getElementById("ValorInicial").value = (porcentaje2 + "%");
-                    console.log(typeof(valorini));
                     if (valorini > Residual) {
-                        let vii = Residual;
-                        
-                        let porcentaje = (vii / Residual);
+                        let porcentaje = (Residual / Residual);
                         let porcentaje2 = Math.round(porcentaje * 100);
                         document.getElementById("ValorInicial").value = (porcentaje2 + "%");
-                        document.getElementById("ValorInicial1").value = (formatNumber.new(vii));
-                        //console.log(capital);
+                        document.getElementById("ValorInicial1").value = (formatNumber.new(Residual));
                         valorini = Residual;
+                        let capital = (TotalAct - valorini);
+                        let capital2 = capital;
+                        let interesca = Math.round(capital * interes);
+                        let ca = capital2 / arrayData[0];
+                        let cuota = ca + interesca;
+                        let Valorantesimp = Math.round(CO + cuota);
+                        let impiva = Valorantesimp / 30;
+                        let depreciacion = ValorActIva / 1800;
+                        let resta = impiva - depreciacion;
+                        let soloiva = Math.round(resta * 0.19 * 30);
+                        let Rtontal= Math.round(Valorantesimp+soloiva);
+                        console.log("Iva:" + soloiva);
+                        console.log("componente operativo:" + CO);
+                        console.log("componente financiero:" + cuota);
+                        console.log("total canon: "+Rtontal);
+                        document.getElementById("Total Canon1").value = formatNumber.new(Valorantesimp, "$ ");
+                        document.getElementById("Iva1").value = formatNumber.new(soloiva, "$ ");
+                        document.getElementById("Total Canon + Iva1").value = formatNumber.new(Rtontal, "$ ");
+
                     }
                     else if (valorini < ResidualMin) {
-                        let viii = ResidualMin;
                         valorini = ResidualMin;
-                        let porcentaje = (viii / ResidualMin);
+                        let porcentaje = (ResidualMin / ResidualMin);
                         let porcentaje2 = Math.round(porcentaje * 100);
                         document.getElementById("ValorInicial").value = (porcentaje2 + "%");
-                        document.getElementById("ValorInicial1").value = (formatNumber.new(viii));
-                        //console.log(capital);
+                        document.getElementById("ValorInicial1").value = (formatNumber.new(ResidualMin));
+                        let capital = (TotalAct - valorini);
+                        let capital2 = capital;
+                        interesca = Math.round(capital * interes);
+                        let ca = capital2 / arrayData[0];
+                        let cuota = ca + interesca;
+                        let Valorantesimp = Math.round(CO + cuota);
+                        let impiva = Valorantesimp / 30;
+                        let depreciacion = ValorActIva / 1800;
+                        let resta = impiva - depreciacion;
+                        let soloiva = Math.round(resta * 0.19 * 30);
+                        let Rtontal= Math.round(Valorantesimp+soloiva);
+                        console.log("Iva:" + soloiva);
+                        console.log("componente operativo:" + CO);
+                        console.log("componente financiero:" + cuota);
+                        console.log("total canon: "+Rtontal);
+                        document.getElementById("Total Canon1").value = formatNumber.new(Valorantesimp, "$ ");
+                        document.getElementById("Iva1").value = formatNumber.new(soloiva, "$ ");
+                        document.getElementById("Total Canon + Iva1").value = formatNumber.new(Rtontal, "$ ");
+
+                        if (valorini = ResidualMin) {
+                            document.getElementById("ValorInicial").value = (80 + "%");
+                        }
+                    }
+                    else {
+                        let porcentaje = (valorini / Residual);
+                        let porcentaje2 = Math.round(porcentaje * 100);
+                        document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                        let capital = (TotalAct - valorini);
+                        let capital2 = capital;
+                        interesca = Math.round(capital * interes);
+                        let ca = capital2 / arrayData[0];
+                        let cuota = ca + interesca;
+                        let Valorantesimp = Math.round(CO + cuota);
+                        let impiva = Valorantesimp / 30;
+                        let depreciacion = ValorActIva / 1800;
+                        let resta = impiva - depreciacion;
+                        let soloiva = Math.round(resta * 0.19 * 30);
+                        let Rtontal= Math.round(Valorantesimp+soloiva);
+                        console.log("Iva:" + soloiva);
+                        console.log("componente operativo:" + CO);
+                        console.log("componente financiero:" + cuota);
+                        console.log("total canon: "+Rtontal);
+                        document.getElementById("Total Canon1").value = formatNumber.new(Valorantesimp, "$ ");
+                        document.getElementById("Iva1").value = formatNumber.new(soloiva, "$ ");
+                        document.getElementById("Total Canon + Iva1").value = formatNumber.new(Rtontal, "$ ");
+
                     }
 
                 } else {
                     //alert("aca inicia residual garantizado DOS pagos");
                     let valorini = Inputnum.toString().replace(/\./g, '');
-                    valorfinal = (ResidualMin - valorini)
-
-                    let capital = (TotalAct - valorini) - (ResidualMin - valorfinal);
-
-                    let porcentaje = (valorini / Residual);
-                    let porcentaje1 = (1 - porcentaje);
-                    let porcentaje2 = Math.round(porcentaje * 100);
-                    let porcentaje3 = Math.round(porcentaje1 * 100);
-                    document.getElementById("ValorInicial").value = (porcentaje2 + "%");
-                    document.getElementById("ValorF").value = (porcentaje3 + "%");
-                    document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
-                    console.log(typeof(valorini));
-                    if (valorini > Residual) {
-                        console.log(Residual);
-                        console.log(valorini);
-                        let vii = Residual;
-                        Residual = valorini;
-                        let porcentaje = (vii / Residual);
+                    //debugger;
+                    if (valorini < ResidualMin) {
+                        valorfinal = (ResidualMin - valorini)
+                        let porcentaje = (valorini / ResidualMin);
                         let porcentaje1 = (1 - porcentaje);
                         let porcentaje2 = Math.round(porcentaje * 100);
                         let porcentaje3 = Math.round(porcentaje1 * 100);
                         document.getElementById("ValorInicial").value = (porcentaje2 + "%");
                         document.getElementById("ValorF").value = (porcentaje3 + "%");
                         document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
-                        document.getElementById("ValorInicial1").value = (formatNumber.new(vii));
-                        //console.log(capital);
-                        if (porcentaje3 == 0) {
-                            
-                            vii = 0;
-                            document.getElementById("ValorFinal1").value = (formatNumber.new(vii));
-                            //console.log(capital);
-                            //console.log(vii);
-                        }
+                        let capital = (TotalAct - valorini);
+                        let capital2 = capital - valorfinal;
+                        interesca = Math.round(capital * interes);
+                        let ca = capital2 / arrayData[0];
+                        let cuota = ca + interesca;
+                        let Valorantesimp = Math.round(CO + cuota);
+                        let impiva = Valorantesimp / 30;
+                        let depreciacion = ValorActIva / 1800;
+                        let resta = impiva - depreciacion;
+                        let soloiva = Math.round(resta * 0.19 * 30);
+                        let Rtontal= Math.round(Valorantesimp+soloiva);
+                        console.log("Iva:" + soloiva);
+                        console.log("componente operativo:" + CO);
+                        console.log("componente financiero:" + cuota);
+                        console.log("total canon: "+Rtontal);
+                        document.getElementById("Total Canon1").value = formatNumber.new(Valorantesimp, "$ ");
+                        document.getElementById("Iva1").value = formatNumber.new(soloiva, "$ ");
+                        document.getElementById("Total Canon + Iva1").value = formatNumber.new(Rtontal, "$ ");
                     }
-                    
+                    else if (valorini > ResidualMin) {
+                        valorini = ResidualMin;
+                        valorfinal = (ResidualMin - valorini);
+                        let porcentaje = (ResidualMin / ResidualMin);
+                        let porcentaje1 = (1 - porcentaje);
+                        let porcentaje2 = Math.round(porcentaje * 100);
+                        let porcentaje3 = Math.round(porcentaje1 * 100);
+                        document.getElementById("ValorInicial").value = (porcentaje2 + "%");
+                        document.getElementById("ValorF").value = (porcentaje3 + "%");
+                        document.getElementById("ValorFinal1").value = (formatNumber.new(valorfinal));
+                        document.getElementById("ValorInicial1").value = (formatNumber.new(valorini));
+                        let capital = (TotalAct - valorini);
+                        let capital2 = capital - valorfinal;
+                        interesca = Math.round(capital * interes);
+                        let ca = capital2 / arrayData[0];
+                        let cuota = ca + interesca;
+                        let Valorantesimp = Math.round(CO + cuota);
+                        let impiva = Valorantesimp / 30;
+                        let depreciacion = ValorActIva / 1800;
+                        let resta = impiva - depreciacion;
+                        let soloiva = Math.round(resta * 0.19 * 30);
+                        let Rtontal= Math.round(Valorantesimp+soloiva);
+                        console.log("Iva:" + soloiva);
+                        console.log("componente operativo:" + CO);
+                        console.log("componente financiero:" + cuota);
+                        console.log("total canon: "+Rtontal);
+                        document.getElementById("Total Canon1").value = formatNumber.new(Valorantesimp, "$ ");
+                        document.getElementById("Iva1").value = formatNumber.new(soloiva, "$ ");
+                        document.getElementById("Total Canon + Iva1").value = formatNumber.new(Rtontal, "$ ");
+
+                    }
+
 
 
                 }
