@@ -102,12 +102,6 @@
                         </div>
                     </div>
 
-
-
-                    <!-- apartado de residual gyarantaizado por div
-<h6 style="display: none; " id="titulore" >Residual (Residual garantizado) </h6>
-<input type="text" id="Residual" readonly value="Residual" style="display: none;" />
-</div>-->
                     <!-- APARTADO para residual vehículo -->
 
                     <div id="titulore" class="container" class="form-group col-md-6" style="display: none;">
@@ -164,6 +158,12 @@
                             <input type="text" id="Tasa" readonly value="1,20%" />
                             <h6>Plazo</h6>
                             <input type="text" id="plazo1" readonly placeholder="Plazo" />
+                            <h6 style="display: none" id="Pago Inicial1">Pago Inicial</h6>
+                            <input style="display: none" type="text" id="Pago Inicial" readonly
+                                placeholder="Pago Inicial" />
+                            <h6 style="display: none" id="Opcion de compra1">Opcion de compra</h6>
+                            <input style="display: none" type="text" id="Opcion de compra" readonly
+                                placeholder="Opcion de compra" />
                             <h6>Cuota financiación</h6>
                             <input type="text" id="Cuota financiación" readonly placeholder="Cuota financiación" />
                             <h6>Costos Totales de Propiedad (CTP)</h6>
@@ -182,6 +182,51 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <h2>Información de uso de la plantilla</h2>
+                        <h3>Datos de Solicitud</h3>
+                        <p>*Plazo: Debe seleccionar de acuerdo a la lista desplegable el plazo en meses el cual el
+                            cliente está interesado en tomar el plan de Renting (36-48-60).</p>
+                        <p>*Km anual: Debe seleccionar de acuerdo a la lista desplegable el kilometraje anual en el cual
+                            el cliente está interesado en tomar el plan de Renting de acuerdo sus necesidades de uso.
+                            (10.000 Km o 15.000 Km).</p>
+                        <p>*Lugar de Matricula: Debe seleccionar el lugar en el cual de acuerdo con el cliente se quiere
+                            que sea matriculado el vehículo. Hay que tener en cuenta que al seleccionar Otros se genera
+                            un cambio en el cálculo del canon.</p>
+                        <h3>*Tipo de Renting</h3>
+                        <p>Renting Tradicional: Corresponde a la modalidad tradicional en la que el cliente es tenedor
+                            del vehículo durante un determinado tiempo y con unas condiciones específicas plasmadas en
+                            un contrato de arrendamiento.</p>
+                        <p>Residual Garantizado: Corresponde a la modalidad en la que el cliente el momento de finalizar
+                            el contrato de arrendamiento pasa a ser propietario total del activo.</p>
+                        <p>*Residual: Corresponde al valor que el cliente debe cancelar en las dos diferentes
+                            modalidades ya sea el 100% en un pago inicial o en dos cuotas las cuales serán una al inicio
+                            del contrato de Renting y la segunda al finalizar el plazo del contrato para que se pueda
+                            generar el traspaso de la propiedad a el cliente.</p>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <h2>Información de datos de comparativos</h2>
+                        <h3>Comparativo financiación 100% del vehículo.</h3>
+                        <p>Valor vehículo: Corresponde al valor de mercado del vehículo como punto referencia de la
+                            comercialización.</p>
+                        <p>Accesorios básicos: Corresponde al costo de los accesorios básicos que debe tener el
+                            vehículo. </p>
+                            <p>Total a financiar: Es el valor total a financiar con la sumatoria del costo del vehículo y sus accesorios.</p>
+                            <p>Tasa: Corresponde al valor de la tasa promedio de préstamo para financiación de vehículo</p>
+                            <p>Plazo: Es el numero de meses en los cuales el cliente realizara el pago del total a financiar de forma mensual</p>
+                            <p style="display: none" id="pi">Pago inicial: Corresponde al valor que cliente decida abonar al residual con la finalidad de obtener la propiedad del activo al finalizar el plazo establecido en el Renting.</p>
+                            <p style="display: none" id="oc">Opción de compra: Corresponde a el valor acordado por las partes como el pago del final del plazo de contrato de Renting para poder realizar el traspaso de propiedad al cliente.</p>
+                            <p>Cuota financiación: Corresponde al valor de cuota mensual de financiación que tiene el crédito con la amortización de capital y la generación de intereses mensual.</p>
+                            <p>Costos Totales de Propiedad (CTP): Corresponde al valor total de costos en los que incurriría la persona en el plazo total para poder tener el vehículo en optimas condiciones técnicas y reglamentarias.</p>
+                            <p>CTP Mensual: Corresponde al costo Total de Propiedad pero en un promedio mensual.</p>
+                            <p>Cuota total: Corresponde a la sumatoria de la cuota de financiación y el CTP mensual, esto para poder comparar directamente con el Renting y visualizar el ahorro que se generaría.</p>
+
+                    </div>
                 </div>
             </div>
 
