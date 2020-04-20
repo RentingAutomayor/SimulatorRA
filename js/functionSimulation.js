@@ -616,6 +616,7 @@ function DataValidator() {
     else if (arrayData[0] == "48") {
         Residual = 29761220;
         var ResidualMin = (Residual * 0.8);
+        interes = 0.1040 / 12;
         document.getElementById("ResidualMin").value = (formatNumber.new(ResidualMin + ",00", "$ "));
         document.getElementById("Residual").value = (formatNumber.new(Residual + ",00", "$ "));
 
@@ -905,6 +906,7 @@ function DataValidator() {
     else if (arrayData[0] == "60") {
         Residual = 26826290;
         var ResidualMin = (Residual * 0.8);
+        interes = 0.1040 / 12;
         document.getElementById("ResidualMin").value = (formatNumber.new(ResidualMin + ",00", "$ "));
         document.getElementById("Residual").value = (formatNumber.new(Residual + ",00", "$ "));
 
