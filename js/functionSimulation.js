@@ -42,18 +42,26 @@ var ExcepPicoyPlaca;
 function RentingTradicional(interes, plazoo, CO, Residual, CPT) {
     //calculo de A 
     let nuevoa = (1 + interes);
+    //console.log(nuevoa);
     let nuevoa1 = Math.pow(nuevoa, -plazoo);
     let nuevoa2 = 1 - nuevoa1;
     let A = nuevoa2 / interes;
     //calculo de B
     let vfutu = 1 + interes;
+    console.log(vfutu);
     let vfutur = Math.pow(vfutu, -plazoo);
-    let B = Residual * vfutur;
+    let B = (Residual * vfutur);
     //Calculo de componente financiero 
     let comp = TotalAct - B;
     let compfin = comp / A;
+    console.log("A: "+A);
+    console.log("B: "+B);
+    //console.log("vfutur: "+vfutur);
+    //console.log("interes: "+interes);
+    console.log("compo financiero: "+compfin );
+    console.log("compo operativo: "+CO );
     //calculo de renting antes de iva, iva y despues de iva 
-    let Valorantesimp = Math.round(CO + compfin);
+    let Valorantesimp = Math.round(CO + compfin);      //AQUI COMIENZA
     let impiva = Valorantesimp / 30;
     let depreciacion = ValorActIva / timeindays_depreciated;
     let resta = impiva - depreciacion;
@@ -376,7 +384,7 @@ function DataValidator() {
     }
 
     if (arrayData[0] == "36") {
-        document.getElementById("Residual").value = "$ 32.850.620,00";
+        document.getElementById("Residual").value = (formatNumber.new(Residual + ",00", "$ "));
         Residual = 32850620;
         CPT = 15280000;
         var ResidualMin = (Residual * 0.8);
@@ -397,7 +405,7 @@ function DataValidator() {
         Gestor = 0;
         Llantas = 0;
         Stand = 0;
-        ConversionDesconversion = -600;
+        ConversionDesconversion = 0;
         PolizasAdicionales = 0;
         CupoChatarrizacion = 0;
         Imprevistos = 0;
@@ -605,7 +613,7 @@ function DataValidator() {
         Comisiones = 24983;
         Cupo = 0;
         Gestor = 0;
-        Llantas = 400;
+        Llantas = 0;
         Stand = 0;
         ConversionDesconversion = 0;
         PolizasAdicionales = 0;
@@ -799,7 +807,7 @@ function DataValidator() {
         Chevystar = 34579;
         Comisiones = 20965;
         Cupo = 0;
-        Gestor = 400;
+        Gestor = 0;
         Llantas = 0;
         Stand = 0;
         ConversionDesconversion = 0;

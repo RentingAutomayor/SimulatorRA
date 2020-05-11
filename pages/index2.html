@@ -47,21 +47,10 @@
       width: 90px;
     }
 
-    #datoss {
-      padding-top: 35px !important;
-      
-    }
-
-    #datosss {
-      padding-top: 35px !important;
-      
-    }
-
     header {
       padding-top: 70px !important;
       padding-bottom: 0px !important;
     }
-
     #container {
       padding-top: 130px;
     }
@@ -107,18 +96,18 @@
       </div>
     </div>
   </nav>
-  <!--
+<!--
   <header class="masthead text-white text-center">
     <img class="img-fluid" src="img/portfolio/rent1.png" alt="">
     <div class="container d-flex align-items-center flex-column">
 
       <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
-
-  <!-- Masthead Heading 
+    
+      <!-- Masthead Heading 
       <h1 class="masthead-heading text-uppercase mb-0">Nos encanta tenerte aqui!</h1>
     </div>
   </header>-->
-
+  
   <!-- Portfolio Section -->
 
   <div class="container" id="container">
@@ -126,79 +115,95 @@
       Persona natural</h2> <br><br>
 
     <form>
-
-      <h3 class="text-center">Datos de Solicitud</h3>
       <div class="form-row">
-        
-        <div class="col-xl-4 col-md-12 col-lg-4 col-sm-12">
-          <img class="img-fluid" src="../img/portfolio/onixsedan.png" alt="Onix">
-          <h3 class="text-center">Seleccionar el vehículo que quieres!</h3>
+        <div class="form-group col-md-4">
+          <h6 for="inputplazo">plazo</h6>
+          <select id="inputplazo" onchange="getDataSelect(this.value,0);" class="form-control">
+            <option selected>Escoja Opcion</option>
+            <option value="36">36 Meses</option>
+            <option value="48">48 Meses</option>
+            <option value="60">60 Meses</option>
+          </select>
         </div>
-        
-        <div class="col-xl-4 col-md-6 col-lg-4 col-sm-6">
-          
-          <div class="form-group">
-            <h6 for="inputplazo">Seleccionar plazo</h6>
-            <select id="inputplazo" onchange="getDataSelect(this.value,0);" class="form-control">
-              <option selected>Escoja Opcion</option>
-              <option value="36">36 Meses</option>
-              <option value="48">48 Meses</option>
-              <option value="60">60 Meses</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <h6 for="inputkm">Seleccionar Kilometraje Anual</h6>
-            <select id="inputkm" onchange="getDataSelect(this.value,1);" class="form-control">
-              <option selected>Escoja Opcion</option>
-              <option value="10000">10000 Kilometros</option>
-              <option value="15000">15000 Kilometros</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <h6 for="nputmatri">Seleccionar Matricula</h6>
-            <select id="inputmatri" onchange="getDataSelect(this.value,2);" class="form-control">
-              <option selected>Escoja Opcion</option>
-              <option value="Cundinamarca">Cundinamarca</option>
-              <option value="Otro">Otro lugar</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <h6 for="inputTipoRenting">Seleccionar Tipo Renting</h6>
-            <select id="inputTipoRenting" onchange="getDataSelect(this.value,3);" class="form-control">
-              <option selected>Escoja Opcion</option>
-              <option value="Renting Tradicional">Renting Tradicional</option>
-              <option value="Residual garantizado">Residual garantizado</option>
-            </select>
-          </div>
+        <div class="form-group col-md-4">
+          <h6 for="inputkm">kilometraje Anual</h6>
+          <select id="inputkm" onchange="getDataSelect(this.value,1);" class="form-control">
+            <option selected>Escoja Opcion</option>
+            <option value="10000">10000 Kilometros</option>
+            <option value="15000">15000 Kilometros</option>
+          </select>
         </div>
-        <!--seccion de mostrar parametros-->
-        <div class="col-xl-4 col-md-6 col-lg-4 col-sm-6">
-
-          <div class="form-group">
-            <h6 for="plazo">Plazo</h6>
-            <input class="form-control" type="text" id="plazo" readonly placeholder="plazo" />
-          </div>
-          <div class="form-group">
-            <h6 for="km">kilometraje Anual</h6>
-            <input class="form-control" type="text" id="km" readonly placeholder="kilometraje Anual" />
-          </div>
-          <div class="form-group">
-            <h6 for="matricula">Ciudad de Matricula</h6>
-            <input class="form-control" type="text" id="matricula" readonly placeholder="Ciudad de Matricula" />
-          </div>
-          <div class="form-group">
-            <h6 for="TipoRenting">Tipo de Renting</h6>
-            <input class="form-control" type="text" id="TipoRenting" readonly placeholder="Tipo de Renting" />
-          </div>
+        <div class="form-group col-md-4">
+          <h6 for="nputmatri">Matricula</h6>
+          <select id="inputmatri" onchange="getDataSelect(this.value,2);" class="form-control">
+            <option selected>Escoja Opcion</option>
+            <option value="Cundinamarca">Cundinamarca</option>
+            <option value="Otro">Otro lugar</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <h6 for="inputTipoRenting">Tipo Renting</h6>
+          <select id="inputTipoRenting" onchange="getDataSelect(this.value,3);" class="form-control">
+            <option selected>Escoja Opcion</option>
+            <option value="Renting Tradicional">Renting Tradicional</option>
+            <option value="Residual garantizado">Residual garantizado</option>
+          </select>
         </div>
       </div>
-      <!--seccion de escoger parametros-->
-      <div class="form-row">
-        <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12">
-          <div id="titulore" class="container" class="form-group" style="display: none;">
-            <h3 class="text-center">Escoje como quieres pagar tu Residual garantizado</h3>
+
+      <div class="container">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h6>Plazo</h6>
+            <input type="text" id="plazo" readonly value="plazo" />
+            <h6>kilometraje Anual</h6>
+            <input type="text" id="km" readonly value="km" />
+            <h6>Ciudad de Matricula</h6>
+            <input type="text" id="matricula" readonly value="matricula" />
+            <h6>Tipo de Renting</h6>
+            <input type="text" id="TipoRenting" readonly value="TipoRenting" />
+          </div>
+
+          <!-- APARTADO TOTAL CANON Renting Tradicional -->
+          <div id="Renting Tradicional1" class="form-group col-md-6">
+            <h3>Total Canon Renting Tradicional</h3>
+
+            <div class="form-group col-md-6">
+
+              <h6>Total Canon Mensual</h6>
+              <input type="text" id="Total Canon" readonly value="Total Canon" />
+              <h6>Iva</h6>
+              <input type="text" id="Iva" readonly value="Iva" />
+              <h6>Total Canon Mensual + Iva</h6>
+              <input type="text" id="Total Canon + Iva" readonly value="Total Canon + Iva" />
+            </div>
+          </div>
+
+          <!-- APARTADO TOTAL CANON RESIDUAL GARANTIZADO -->
+          <div id="Residual garantizado1" class="form-group col-md-6" style="display: none;">
+            <h3>Total Canon Residual garantizado</h3>
+
+            <div class="form-group col-md-6">
+
+              <h6>Total Canon Mensual</h6>
+              <input type="text" id="Total Canon1" readonly value="Total Canon" />
+              <h6>Iva</h6>
+              <input type="text" id="Iva1" readonly value="Iva" />
+              <h6>Total Canon Mensual + Iva</h6>
+              <input type="text" id="Total Canon + Iva1" readonly value="Total Canon + Iva" />
+            </div>
+          </div>
+
+          <!-- APARTADO para residual vehículo -->
+
+          <div id="titulore" class="container" class="form-group col-md-6" style="display: none;">
+            <h2>Residual garantizado</h2>
+            <p>Esta tabla muestra los valores de pago</p>
+
             <p> Dos Pagos: <input type="checkbox" id="myCheck" onclick="myFunction()"> </p>
+
             <p>Residual: <input type="text" id="Residual" class="Residuall" readonly value="Residual"></p>
+
             <p>Residual Minimo: <input type="text" id="ResidualMin" class="Residuall" readonly value="ResidualMin"> </p>
             <table class="table table-hover">
               <thead>
@@ -228,193 +233,103 @@
             </table>
           </div>
 
-        </div>
-      </div>
-      
-      <!-- APARTADO para tabla residual de vehículo -->
-      
-      <div class="form-row">
-        <div class="col-xl-6 col-md-8 col-lg-6 col-sm-12 mx-auto" >
-          <!-- APARTADO TOTAL CANON Renting Tradicional -->
-          <div id="Renting Tradicional1" class="form-group">
-            <h3>Total Canon Renting Tradicional</h3>
-            <div class="form-group">
-              <h6 for="Total Canon">Total Canon Mensual</h6>
-              <input class="form-control" type="text" id="Total Canon" readonly placeholder="Total Canon" />
+          <!-- APARTADO financiación 100% del vehículo -->
+          <div class="form-group col-md-6">
+            <h3>Comparativo financiación 100% del vehículo.</h3>
+
+            <div class="form-group col-md-4">
+
+              <h6>Valor vehiculo</h6>
+              <input type="text" id="Valor vehiculo" readonly value="51.490.000" />
+              <h6>Accesorios basicos</h6>
+              <input type="text" id="Accesorios basicos" readonly value="328.440" />
+              <h6>Total a financiar</h6>
+              <input type="text" id="Total a financiar" readonly value="51.818.440" />
+              <h6>Tasa</h6>
+              <input type="text" id="Tasa" readonly value="1,20%" />
+              <h6>Plazo</h6>
+              <input type="text" id="plazo1" readonly placeholder="Plazo" />
+              <h6 style="display: none" id="Pago Inicial1">Pago Inicial</h6>
+              <input style="display: none" type="text" id="Pago Inicial" readonly placeholder="Pago Inicial" />
+              <h6 style="display: none" id="Opcion de compra1">Opcion de compra</h6>
+              <input style="display: none" type="text" id="Opcion de compra" readonly placeholder="Opcion de compra" />
+              <h6>Cuota financiación</h6>
+              <input type="text" id="Cuota financiación" readonly placeholder="Cuota financiación" />
+              <h6>Costos Totales de Propiedad (CTP)</h6>
+              <input type="text" id="CTP" readonly placeholder="(CTP)" />
+              <h6>CTP Mensual</h6>
+              <input type="text" id="CTP Mensual" readonly placeholder="CTP Mensual" />
+              <h6>Cuota total mensual</h6>
+              <input type="text" id="Cuota total mensual" readonly placeholder="Cuota total mensual" />
+              <h6>Canon Renting mensual</h6>
+              <input type="text" id="Canon Renting mensual" readonly placeholder="Canon Renting mensual" />
+              <h6>Tu ahorro mensual con Renting es de:</h6>
+              <input type="text" id="Tu ahorro mensual con Renting es de:" readonly
+                placeholder="Tu ahorro mensual con Renting es de:" />
+
             </div>
-            <div class="form-group">
-              <h6 for="Iva">Iva</h6>
-              <input class="form-control" type="text" id="Iva" readonly placeholder="Iva" />
-            </div>
-            <div class="form-group">
-              <h6 for="Total Canon + Iva">Total Canon Mensual + Iva</h6>
-              <input class="form-control" type="text" id="Total Canon + Iva" readonly placeholder="Total Canon + Iva" />
-            </div>
-          </div>
-
-
-          <!-- APARTADO TOTAL CANON RESIDUAL GARANTIZADO -->
-          <div id="Residual garantizado1" class="form-group" style="display: none;">
-            <h3>Total Canon Residual garantizado</h3>
-            <div class="form-group">
-              <h6 for="Total Canon">Total Canon Mensual</h6>
-              <input class="form-control" type="text" id="Total Canon1" readonly placeholder="Total Canon" />
-            </div>
-            <div class="form-group">
-              <h6 for="Iva">Iva</h6>
-              <input class="form-control" type="text" id="Iva1" readonly placeholder="Iva" />
-            </div>
-            <div class="form-group">
-              <h6 for="Total Canon + Iva">Total Canon Mensual + Iva</h6>
-              <input class="form-control" type="text" id="Total Canon + Iva1" readonly
-                placeholder="Total Canon + Iva" />
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!--seccion de mostrar comparativo de vehiculo-->
-      <h3 id="datosss" class="text-center ">Comparativo financiación 100% del vehículo.</h3>
-      <div class="form-row">
-
-        <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-
-          <div class="form-group">
-            <h6 for="Valor vehiculo">Valor vehiculo</h6>
-            <input class="form-control" type="text" id="Valor vehiculo" readonly placeholder="$ 51.490.000" />
-          </div>
-          <div class="form-group">
-            <h6 for="Accesorios basicos">Accesorios basicos</h6>
-            <input class="form-control" type="text" id="Accesorios basicos" readonly placeholder="$ 328.440" />
-          </div>
-          <div class="form-group">
-            <h6 for="Total a financiar">Total a financiar</h6>
-            <input class="form-control" type="text" id="Total a financiar" readonly placeholder="$ 51.818.440" />
-          </div>
-          <div class="form-group">
-            <h6 for="Tasa">Tasa</h6>
-            <input class="form-control" type="text" id="Tasa" readonly placeholder="1.20 %" />
-          </div>
-          <div class="form-group">
-            <h6 for="plazo1">Plazo</h6>
-            <input class="form-control" type="text" id="plazo1" readonly placeholder="plazo" />
-          </div>
-          <div class="form-group">
-            <h6 style="display: none" for="Pago Inicial" id="Pago Inicial1">Pago Inicial</h6>
-            <input style="display: none" class="form-control" type="text" id="Pago Inicial" readonly
-              placeholder="Pago Inicial" />
-          </div>
-          <div class="form-group">
-            <h6 style="display: none" for="Opcion de compra" id="Opcion de compra1">Opcion de compra</h6>
-            <input style="display: none" class="form-control" type="text" id="Opcion de compra" readonly
-              placeholder="Opcion de compra" />
-          </div>
-
-        </div>
-
-        <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-
-
-          <div class="form-group">
-            <h6 for="Cuota financiación">Cuota financiación</h6>
-            <input class="form-control" type="text" id="Cuota financiación" readonly placeholder="Cuota financiación" />
-          </div>
-          <div class="form-group">
-            <h6 for="CTP">Costos Totales de Propiedad (CTP)</h6>
-            <input class="form-control" type="text" id="CTP" readonly placeholder="CTP" />
-          </div>
-          <div class="form-group">
-            <h6 for="CTP Mensual">CTP Mensual</h6>
-            <input class="form-control" type="text" id="CTP Mensual" readonly placeholder="CTP Mensual" />
-          </div>
-          <div class="form-group">
-            <h6 for="Cuota total mensual">Cuota total mensual</h6>
-            <input class="form-control" type="text" id="Cuota total mensual" readonly
-              placeholder="Cuota total mensual" />
-          </div>
-          <div class="form-group">
-            <h6 for="Canon Renting mensual">Canon Renting mensual</h6>
-            <input class="form-control" type="text" id="Canon Renting mensual" readonly
-              placeholder="Canon Renting mensual" />
-          </div>
-          <div class="form-group">
-            <h6 for="Tu ahorro mensual con Renting es de:">Tu ahorro mensual con Renting es de:</h6>
-            <input class="form-control" type="text" id="Tu ahorro mensual con Renting es de:" readonly
-              placeholder="Tu ahorro mensual con Renting es de:" />
           </div>
 
         </div>
       </div>
-      <!--Informacion-->
-      <div class="form-row">
-        <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12">
 
-          <h2 class="text-center">Información de uso de la plantilla</h2>     
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">Datos de Solicitud</h3>
-              <p class="card-text"><p>*Plazo: Debe seleccionar de acuerdo a la lista desplegable el plazo en meses el cual el
-                cliente está interesado en tomar el plan de Renting (36-48-60).<br>
-              *Km anual: Debe seleccionar de acuerdo a la lista desplegable el kilometraje anual en el cual
-                el cliente está interesado en tomar el plan de Renting de acuerdo sus necesidades de uso.
-                (10.000 Km o 15.000 Km)<br>
-              *Lugar de Matricula: Debe seleccionar el lugar en el cual de acuerdo con el cliente se quiere
-                que sea matriculado el vehículo. Hay que tener en cuenta que al seleccionar Otros se genera
-                un cambio en el cálculo del canon.<br>
-              <h5>*Tipo de Renting</h5>
-              Renting Tradicional: Corresponde a la modalidad tradicional en la que el cliente es tenedor
-                del vehículo durante un determinado tiempo y con unas condiciones específicas plasmadas en
-                un contrato de arrendamiento.<br>
-              Residual Garantizado: Corresponde a la modalidad en la que el cliente el momento de finalizar
-                el contrato de arrendamiento pasa a ser propietario total del <br>
-              *Residual: Corresponde al valor que el cliente debe cancelar en las dos diferentes
-                modalidades ya sea el 100% en un pago inicial o en dos cuotas las cuales serán una al inicio
-                del contrato de Renting y la segunda al finalizar el plazo del contrato para que se pueda
-                generar el traspaso de la propiedad a el cliente.</p>
-              
-            </div>
+      <div class="container">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <h2>Información de uso de la plantilla</h2>
+            <h3>Datos de Solicitud</h3>
+            <p>*Plazo: Debe seleccionar de acuerdo a la lista desplegable el plazo en meses el cual el
+              cliente está interesado en tomar el plan de Renting (36-48-60).</p>
+            <p>*Km anual: Debe seleccionar de acuerdo a la lista desplegable el kilometraje anual en el cual
+              el cliente está interesado en tomar el plan de Renting de acuerdo sus necesidades de uso.
+              (10.000 Km o 15.000 Km).</p>
+            <p>*Lugar de Matricula: Debe seleccionar el lugar en el cual de acuerdo con el cliente se quiere
+              que sea matriculado el vehículo. Hay que tener en cuenta que al seleccionar Otros se genera
+              un cambio en el cálculo del canon.</p>
+            <h3>*Tipo de Renting</h3>
+            <p>Renting Tradicional: Corresponde a la modalidad tradicional en la que el cliente es tenedor
+              del vehículo durante un determinado tiempo y con unas condiciones específicas plasmadas en
+              un contrato de arrendamiento.</p>
+            <p>Residual Garantizado: Corresponde a la modalidad en la que el cliente el momento de finalizar
+              el contrato de arrendamiento pasa a ser propietario total del activo.</p>
+            <p>*Residual: Corresponde al valor que el cliente debe cancelar en las dos diferentes
+              modalidades ya sea el 100% en un pago inicial o en dos cuotas las cuales serán una al inicio
+              del contrato de Renting y la segunda al finalizar el plazo del contrato para que se pueda
+              generar el traspaso de la propiedad a el cliente.</p>
           </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">Comparativo financiación 100% del vehículo.</h3>
-              <p class="card-text"><h5>Información de datos de comparativos</h5>
-                Valor vehículo: Corresponde al valor de mercado del vehículo como punto referencia de la
-                  comercialización.<br>
-                Accesorios básicos: Corresponde al costo de los accesorios básicos que debe tener el
-                  vehículo. <br>
-                Total a financiar: Es el valor total a financiar con la sumatoria del costo del vehículo y sus
-                  accesorios.<br>
-                Tasa: Corresponde al valor de la tasa promedio de préstamo para financiación de vehículo<br>
-                Plazo: Es el numero de meses en los cuales el cliente realizara el pago del total a financiar de forma
-                  mensual</p>
-                <p style="display: none" id="pi">Pago inicial: Corresponde al valor que cliente decida abonar al residual
-                  con la finalidad de obtener la propiedad del activo al finalizar el plazo establecido en el Renting.</p>
-                <p style="display: none" id="oc">Opción de compra: Corresponde a el valor acordado por las partes como el
-                  pago del final del plazo de contrato de Renting para poder realizar el traspaso de propiedad al cliente.
-                </p>
-                <p>Cuota financiación: Corresponde al valor de cuota mensual de financiación que tiene el crédito con la
-                  amortización de capital y la generación de intereses mensual.<br>
-                Costos Totales de Propiedad (CTP): Corresponde al valor total de costos en los que incurriría la persona
-                  en el plazo total para poder tener el vehículo en optimas condiciones técnicas y reglamentarias.<br>
-                CTP Mensual: Corresponde al costo Total de Propiedad pero en un promedio mensual.<br>
-                Cuota total: Corresponde a la sumatoria de la cuota de financiación y el CTP mensual, esto para poder
-                  comparar directamente con el Renting y visualizar el ahorro que se generaría.</p>
-              
-            </div>
+          <div class="form-group col-md-12">
+            <h2>Información de datos de comparativos</h2>
+            <h3>Comparativo financiación 100% del vehículo.</h3>
+            <p>Valor vehículo: Corresponde al valor de mercado del vehículo como punto referencia de la
+              comercialización.</p>
+            <p>Accesorios básicos: Corresponde al costo de los accesorios básicos que debe tener el
+              vehículo. </p>
+            <p>Total a financiar: Es el valor total a financiar con la sumatoria del costo del vehículo y sus
+              accesorios.</p>
+            <p>Tasa: Corresponde al valor de la tasa promedio de préstamo para financiación de vehículo</p>
+            <p>Plazo: Es el numero de meses en los cuales el cliente realizara el pago del total a financiar de forma
+              mensual</p>
+            <p style="display: none" id="pi">Pago inicial: Corresponde al valor que cliente decida abonar al residual
+              con la finalidad de obtener la propiedad del activo al finalizar el plazo establecido en el Renting.</p>
+            <p style="display: none" id="oc">Opción de compra: Corresponde a el valor acordado por las partes como el
+              pago del final del plazo de contrato de Renting para poder realizar el traspaso de propiedad al cliente.
+            </p>
+            <p>Cuota financiación: Corresponde al valor de cuota mensual de financiación que tiene el crédito con la
+              amortización de capital y la generación de intereses mensual.</p>
+            <p>Costos Totales de Propiedad (CTP): Corresponde al valor total de costos en los que incurriría la persona
+              en el plazo total para poder tener el vehículo en optimas condiciones técnicas y reglamentarias.</p>
+            <p>CTP Mensual: Corresponde al costo Total de Propiedad pero en un promedio mensual.</p>
+            <p>Cuota total: Corresponde a la sumatoria de la cuota de financiación y el CTP mensual, esto para poder
+              comparar directamente con el Renting y visualizar el ahorro que se generaría.</p>
+
           </div>
         </div>
       </div>
+
+
+
     </form>
   </div>
-
-
 
   <!-- About Section 
   <section class="page-section bg-primary text-white mb-0" id="about">
