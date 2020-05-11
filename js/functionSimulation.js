@@ -48,18 +48,18 @@ function RentingTradicional(interes, plazoo, CO, Residual, CPT) {
     let A = nuevoa2 / interes;
     //calculo de B
     let vfutu = 1 + interes;
-    console.log(vfutu);
+   // console.log(vfutu);
     let vfutur = Math.pow(vfutu, -plazoo);
     let B = (Residual * vfutur);
     //Calculo de componente financiero 
     let comp = TotalAct - B;
     let compfin = comp / A;
-    console.log("A: "+A);
-    console.log("B: "+B);
+   // console.log("A: "+A);
+    //console.log("B: "+B);
     //console.log("vfutur: "+vfutur);
     //console.log("interes: "+interes);
-    console.log("compo financiero: "+compfin );
-    console.log("compo operativo: "+CO );
+  //  console.log("compo financiero: "+compfin );
+   // console.log("compo operativo: "+CO );
     //calculo de renting antes de iva, iva y despues de iva 
     let Valorantesimp = Math.round(CO + compfin);      //AQUI COMIENZA
     let impiva = Valorantesimp / 30;
